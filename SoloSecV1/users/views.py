@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -36,3 +36,9 @@ def profile_view(request):
 
 def home_view(request):
     return render(request, "users/home.html")
+
+User = get_user_model()
+
+def leaderboard_view(request):
+    users = User.objects.order_by('-score')
+    return render(request, "users/leaderboard.html", {"users": users})

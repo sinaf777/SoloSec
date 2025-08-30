@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-2xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6">🏆 Leaderboard</h1>
+
+  <table class="table-auto w-full border-collapse border border-gray-200">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="border px-4 py-2 text-left">Rank</th>
+        <th class="border px-4 py-2 text-left">Username</th>
+        <th class="border px-4 py-2 text-left">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr class="hover:bg-gray-50">
+        <td class="border px-4 py-2">{{ forloop.counter }}</td>
+        <td class="border px-4 py-2">{{ user.username }}</td>
+        <td class="border px-4 py-2">{{ user.score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
