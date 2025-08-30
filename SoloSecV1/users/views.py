@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from challenges.models import Challenge
 from django.contrib.auth import get_user_model
+from .models import CustomUser, Badge
 # Create your views here.
 
 def register_view(request):
@@ -45,3 +46,14 @@ User = get_user_model()
 def leaderboard_view(request):
     users = User.objects.order_by('-score')
     return render(request, "users/leaderboard.html", {"users": users})
+
+
+def profile_view(request):
+    user = request.user
+    solved_challenges = user.solved.all()  # ✅ fetch solved challenges
+    badges = Badge.objects.filter(min_score__lte=user.score)
+    return render(request, "users/profile.html", {
+        "user": user,
+        "solved_challenges": solved_challenges,
+        "badges": badges,
+    })

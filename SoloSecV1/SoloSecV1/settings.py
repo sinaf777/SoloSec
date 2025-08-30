@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     'rooms',
     'challenges',
+    'theme',
 ]
 
 MIDDLEWARE = [
@@ -114,3 +115,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+TAILWIND_APP_NAME = 'theme'
