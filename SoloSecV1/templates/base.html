@@ -13,6 +13,8 @@
         <a href="{% url 'profile' %}" class="mr-3">Profile</a>
         <a href="{% url 'logout' %}">Logout</a>
         <a href="{% url 'leaderboard' %}" class="px-3 py-2 hover:text-yellow-500">Leaderboard</a>
+        <a href="{% url 'challenge_list' %}" class="hover:text-yellow-400">Challenges</a>
+        <a href="{% url 'room_list' %}" class="ml-3 hover:text-yellow-400">Rooms</a>
       {% else %}
         <a href="{% url 'login' %}" class="mr-3">Login</a>
         <a href="{% url 'register' %}">Register</a>
