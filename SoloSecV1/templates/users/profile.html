@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="max-w-md mx-auto mt-10 p-4 border rounded shadow">
-  <h2 class="text-2xl font-bold">Profile</h2>
-  <p><b>Username:</b> {{ user.username }}</p>
-  <p><b>Score:</b> {{ user.score }}</p>
-  <a href="{% url 'logout' %}" class="bg-red-500 text-white px-4 py-2 rounded">Logout</a>
-</div>
-{% endblock %}
